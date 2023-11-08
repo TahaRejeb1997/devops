@@ -24,7 +24,11 @@ public class ProduitServiceImpl implements IProduitService {
 	@Autowired
 	CategorieProduitRepository categorieProduitRepository;
 
-	public ProduitServiceImpl(ProduitRepository produitRepository, StockRepository stockRepository) {
+	@Autowired
+	public ProduitServiceImpl(ProduitRepository produitRepository, StockRepository stockRepository, CategorieProduitRepository categorieProduitRepository) {
+		this.produitRepository = produitRepository;
+		this.stockRepository = stockRepository;
+		this.categorieProduitRepository = categorieProduitRepository;
 	}
 
 	@Override
