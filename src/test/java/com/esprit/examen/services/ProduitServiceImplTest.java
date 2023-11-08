@@ -27,16 +27,11 @@ public class ProduitServiceImplTest {
     @Mock
     private ProduitRepository produitRepository;
 
-    @Mock
-    private StockRepository stockRepository;
 
     @Mock
     private CategorieProduitRepository categorieProduitRepository;
 
-    @BeforeEach
-    public void setUp() {
-        produitService = new ProduitServiceImpl(produitRepository, stockRepository);
-    }
+
 
     @Test
     public void testRetrieveAllProduits() {

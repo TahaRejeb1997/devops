@@ -22,12 +22,7 @@ public class ProduitServiceImpl implements IProduitService {
 	@Autowired
 	CategorieProduitRepository categorieProduitRepository;
 
-	@Autowired
-	public ProduitServiceImpl(ProduitRepository produitRepository, StockRepository stockRepository) {
-		this.produitRepository = produitRepository;
-		this.stockRepository = stockRepository;
-		this.categorieProduitRepository = categorieProduitRepository;
-	}
+
 
 	@Override
 	public List<Produit> retrieveAllProduits() {
