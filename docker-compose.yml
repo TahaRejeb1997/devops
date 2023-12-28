@@ -1,0 +1,29 @@
+version: "3.8"
+services:
+  db:
+    image: mongodb
+    restart: always
+    environment:
+      MYSQL_DATABASE: DevOpsDB
+      MYSQL_ROOT_PASSWORD:
+    ports:
+      - "3307:3307"
+    volumes:
+      - devops_db_data:/var/lib/mysql
+
+  spring:
+    image: taharejeb97/backtest:latest
+    restart: unless-stopped
+    ports:
+      - "8088:8090"
+    environment:
+      SPRING_APPLICATION_JSON: '{
+          "spring.datasource.url": "mongodb+srv://Ipactconsult:Ipact2021@cluster0.jt1kl.mongodb.net/DevOpsDB",
+          "spring.datasource.username": "root",
+          "spring.datasource.password": "",
+          "spring.jpa.hibernate.ddl-auto": "update"
+        }'
+    depends_on:
+      - db
+volumes:
+  devops_db_data:
